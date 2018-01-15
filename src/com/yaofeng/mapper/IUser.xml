@@ -6,9 +6,29 @@
 <mapper namespace="com.yaofeng.mapper.IUser">
 	<!-- 1、查询 -->			<!--参数的类型 							返回值类型-->
 	<select id="selectById" parameterType="java.lang.Integer" resultType="com.yaofeng.model.User">
+	<!--OGML表达式 #{}  -->
 	select * from user where user_id = #{user_id}
 	</select>
 	<select id="selectAll"  resultType="com.yaofeng.model.User">
 	select * from user
 	</select>
+	
+	<!--增加 -->
+	<insert id="insert" parameterType="com.yaofeng.model.User">
+	insert into user(user_id,user_name,user_password)
+	values(#{user_id},#{user_name},#{user_password})
+	</insert>
+	
+	<!-- 删除 -->
+	<delete id="delete" parameterType="java.lang.Integer">
+	delete from user where user_id = #{user_id}
+	</delete>
+	
+	<!-- 修改 -->
+	<update id="update" parameterType="com.yaofeng.model.User">
+	update user set user_name=#{user_name},user_password=#{user_password}
+	where user_id =#{user_id}
+	</update>
+	
+	
 </mapper>

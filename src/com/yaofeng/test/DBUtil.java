@@ -29,4 +29,25 @@ public class DBUtil {
 		List<User> list = userService.selectAll();
 		System.out.println(list.size());
 	}
+	@Test
+	public void insert() {
+		User user = new User();
+		user.setUser_id(4);
+		user.setUser_name("Âé×Ó");
+		user.setUser_password("1111");
+		userService.save(user);
+	}
+	@Test
+	public void delete() {
+		userService.remove(4);
+	}
+	
+	@Test
+	public void update() {
+		User user = new User();
+		user.setUser_id(1);
+		user.setUser_name("³ÉÁú");
+		user.setUser_password("9999");
+		userService.update(user);
+	}
 }

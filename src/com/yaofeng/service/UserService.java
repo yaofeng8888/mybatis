@@ -49,4 +49,46 @@ public class UserService {
 		
 		return userlist;
 	}
+	
+	public void save(User user) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.insert("com.yaofeng.mapper.IUser.insert",user);
+			session.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			session.rollback();
+		}finally {
+			session.close();
+		}
+	}
+	
+	public void remove(Integer user_id) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.delete("com.yaofeng.mapper.IUser.delete",user_id);
+			session.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			session.rollback();
+		}finally {
+			session.close();
+		}
+	}
+	
+	public void update(User user) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.update("com.yaofeng.mapper.IUser.update",user);
+			session.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			session.rollback();
+		}finally {
+			session.close();
+		}
+	}
 }
