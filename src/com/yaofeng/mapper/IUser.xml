@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射接口  用来绑定IUser接口的-->
+<mapper namespace="com.yaofeng.mapper.IUser">
+	<!-- 1、查询 -->			<!--参数的类型 							返回值类型-->
+	<select id="selectById" parameterType="java.lang.Integer" resultType="com.yaofeng.model.User">
+	select * from user where user_id = #{user_id}
+	</select>
+	<select id="selectAll"  resultType="com.yaofeng.model.User">
+	select * from user
+	</select>
+</mapper>
